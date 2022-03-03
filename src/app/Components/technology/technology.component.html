@@ -1,0 +1,18 @@
+<div class="container mt-5">
+  <div class="row" *ngIf="!isFetching">
+    <div *ngFor="let item of techNewsHeadLine" class="col-lg-3 col-md-4 col-sm-6 d-flex align-items-stretch mb-3">
+      <div class="card">
+        <img src="{{item.urlToImage}}" alt="" class="card-img-top">
+        <div class="card-body">
+          <h5 class="card-title">{{ item.title}}</h5>
+          <a href="{{ item.url}}" class="btn btn-dark btn-sm" target="_blank">Read More...</a>
+          <p class="card-text mt-2"><small class="text-muted">Published
+            At {{ item.publishedAt | date : 'short'}}</small></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="isFetching" class="d-flex justify-content-center">
+    <h5 class="badge rounded-pill bg-dark fs-2">Loading .....</h5>
+  </div>
+</div>
