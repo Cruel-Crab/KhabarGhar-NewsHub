@@ -6,6 +6,9 @@ import {SportsComponent} from "./Components/sports/sports.component";
 
 const routes: Routes = [
   {
+    path: '', redirectTo: '/all', pathMatch: 'full'
+  },
+  {
     path: 'all', component: AllComponent,
   },
   {
