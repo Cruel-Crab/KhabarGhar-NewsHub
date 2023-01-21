@@ -10,6 +10,7 @@ import { HttpClientModule } from "@angular/common/http";
 
 import{LoadingBarHttpClientModule}from'@ngx-loading-bar/http-client';
 import { FooterComponent } from './Components/footer/footer.component';
+import { NavbarComponent } from './Components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { FooterComponent } from './Components/footer/footer.component';
     TechnologyComponent,
     SportsComponent,
     AllComponent,
-    FooterComponent
+    FooterComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
