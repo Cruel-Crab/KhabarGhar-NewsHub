@@ -19,7 +19,7 @@ export class SportsComponent implements OnInit {
 
   showSNews() {
     this.isFetching = true;
-    this.serviceFile.getSportsNews().subscribe(
+    this.serviceFile.fetchNews('sports').subscribe(
       (result) => {
         this.isFetching = false;
         this.sportNewsHeadLine = result.articles;

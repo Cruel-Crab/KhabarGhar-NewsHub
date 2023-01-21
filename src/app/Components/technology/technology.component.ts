@@ -19,7 +19,7 @@ export class TechnologyComponent implements OnInit {
 
   showTechNews() {
     this.isFetching = true;
-    this.serviceFile.getTechNews().subscribe(
+    this.serviceFile.fetchNews('technology').subscribe(
       (result) => {
         this.isFetching = false;
         this.techNewsHeadLine = result.articles;

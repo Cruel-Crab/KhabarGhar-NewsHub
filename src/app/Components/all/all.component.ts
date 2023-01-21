@@ -19,7 +19,7 @@ export class AllComponent implements OnInit {
 
   showAllNews() {
     this.isFetching = true;
-    this.serverSvc.getAllNews().subscribe(
+    this.serverSvc.fetchNews().subscribe(
       (result) => {
         this.isFetching = false;
         this.allNewsHeadline = result.articles;

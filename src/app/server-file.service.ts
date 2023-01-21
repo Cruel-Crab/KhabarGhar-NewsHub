@@ -11,21 +11,15 @@ export class ServerFileService {
   }
 
   // allNewsURL = 'https://newsapi.org/v2/top-headlines?country=in&apiKey=c889e51513e14bf8829fc6c164fcc451';
-  allNewsURL = 'https://gnews.io/api/v4/top-headlines?lang=en&country=in&token=1b22c075e8922ac2d6e3b9f6e898190d'
-  techNewsURL = 'https://gnews.io/api/v4/top-headlines?lang=en&country=in&topic=technology&token=1b22c075e8922ac2d6e3b9f6e898190d';
   // techNewsURL = 'https://newsapi.org/v2/top-headlines?country=in&category=technology&apiKey=c889e51513e14bf8829fc6c164fcc451';
-  sportsNewsURL = 'https://gnews.io/api/v4/top-headlines?lang=en&country=in&topic=sports&token=1b22c075e8922ac2d6e3b9f6e898190d'
   // sportsNewsURL = 'https://newsapi.org/v2/top-headlines?country=in&category=sports&apiKey=c889e51513e14bf8829fc6c164fcc451';
 
-  getAllNews(): Observable<any> {
-    return this._http.get(this.allNewsURL);
-  }
 
-  getTechNews(): Observable<any> {
-    return this._http.get(this.techNewsURL)
-  }
+  api_token: string = '1b22c075e8922ac2d6e3b9f6e898190d';
 
-  getSportsNews(): Observable<any> {
-    return this._http.get(this.sportsNewsURL)
+  wrapper_url: string = `https://gnews.io/api/v4/top-headlines?lang=en&token=${this.api_token}`;
+
+  fetchNews(topic: string ='breaking-news', country: string = 'in'): Observable<any> {
+    return this._http.get(this.wrapper_url + `&topic=${topic}&country=${country}`);
   }
 }
