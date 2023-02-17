@@ -1,11 +1,14 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {BehaviorSubject, Observable} from "rxjs";
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ServerFileService {
+
+  dataReceivedViaAPI = new BehaviorSubject<any>([]);
 
   constructor(private _http: HttpClient) {
   }
@@ -14,12 +17,18 @@ export class ServerFileService {
   // techNewsURL = 'https://newsapi.org/v2/top-headlines?country=in&category=technology&apiKey=c889e51513e14bf8829fc6c164fcc451';
   // sportsNewsURL = 'https://newsapi.org/v2/top-headlines?country=in&category=sports&apiKey=c889e51513e14bf8829fc6c164fcc451';
 
+  // returning data as observable
+  fetchUpdatedData() {
+    return this.dataReceivedViaAPI.asObservable();
+  }
 
-  api_token: string = '1b22c075e8922ac2d6e3b9f6e898190d';
+  // setting data into variable dataReceivedViaAPI
+  setUpdatedData(data: any) {
+    this.dataReceivedViaAPI.next(data);
+  }
 
-  wrapper_url: string = `https://gnews.io/api/v4/top-headlines?lang=en&token=${this.api_token}`;
-
-  fetchNews(topic: string ='breaking-news', country: string = 'in'): Observable<any> {
-    return this._http.get(this.wrapper_url + `&topic=${topic}&country=${country}`);
+  // fetching data from API
+  fetchNews(topic: string ='breaking-news', country: string = 'in', query?: string): Observable<any> {
+    return this._http.get(environment.wrapper_url + `&topic=${topic}&country=${country}&q=${query}`);
   }
 }

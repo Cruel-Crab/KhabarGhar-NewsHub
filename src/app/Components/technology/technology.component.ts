@@ -9,8 +9,14 @@ import {ServerFileService} from "../../server-file.service";
 export class TechnologyComponent implements OnInit {
   techNewsHeadLine: any = [];
   isFetching: boolean = false;
+  articlesLength: number = 0;
 
   constructor(private serviceFile: ServerFileService) {
+    this.serviceFile.fetchUpdatedData().subscribe((result) => {
+      this.techNewsHeadLine = result.articles;
+      this.articlesLength = result.totalArticles;
+      console.log('Print kar raha hu bhai result ko chalega na? ', result);
+    });
   }
 
   ngOnInit(): void {
@@ -22,6 +28,7 @@ export class TechnologyComponent implements OnInit {
     this.serviceFile.fetchNews('technology').subscribe(
       (result) => {
         this.isFetching = false;
+        this.articlesLength = result.totalArticles;
         this.techNewsHeadLine = result.articles;
       }
     )

@@ -24,8 +24,8 @@
           </li>
         </ul>
         <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" [placeholder]="placeholder" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
+          <input class="form-control me-2" type="search" [placeholder]="placeholder" [(ngModel)]="searchStr" name="searchStr" aria-label="Search" (search)="clearInput()">
+          <button class="btn btn-outline-success" type="submit" (click)="searchForKeywords()">Search</button>
         </form>
       </div>
     </div>
