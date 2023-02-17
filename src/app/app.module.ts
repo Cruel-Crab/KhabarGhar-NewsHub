@@ -11,6 +11,8 @@ import { HttpClientModule } from "@angular/common/http";
 import{LoadingBarHttpClientModule}from'@ngx-loading-bar/http-client';
 import { FooterComponent } from './Components/footer/footer.component';
 import { NavbarComponent } from './Components/navbar/navbar.component';
+import { NoResultComponent } from './Components/no-result/no-result.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,13 +21,15 @@ import { NavbarComponent } from './Components/navbar/navbar.component';
     SportsComponent,
     AllComponent,
     FooterComponent,
-    NavbarComponent
+    NavbarComponent,
+    NoResultComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     LoadingBarHttpClientModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

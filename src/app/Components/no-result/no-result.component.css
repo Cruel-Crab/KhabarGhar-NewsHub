@@ -1,0 +1,45 @@
+* {
+  border: none;
+  text-align: center;
+  font-weight: 700;
+  font-family: "Lato", sans-serif;
+}
+.errPages .noResult p {
+  margin-top: 20px;
+}
+
+.errPages .redirect {
+  margin-top: 20px;
+  padding-top: 10px;
+}
+
+.errPages .redirect p {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  color: #2f2f2f;
+}
+
+.errPages .redirect a {
+  margin: 15px 0 10px;
+  display: inline-block;
+}
+
+a {
+  color: #00b1cd;
+}
+
+.errPages .redirect a .btnRound {
+  margin: 0px;
+}
+
+.btnRound {
+  height: 38px;
+  width: 186px;
+  display: inline-block;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: center;
+  background-color: #00b1cd;
+  border-radius: 16px;
+}
